@@ -1,0 +1,25 @@
+<a href="/">
+
+    <h1>LOGO</h1>
+</a>
+
+<!-- form has a defual method which is get but i always write down  -->
+<form method="GET" action="{% url 'home' %}">
+
+    <!-- we don't need a security token here because is a get method -->
+
+    <input type="text" name="q" placeholder="Search Rooms...">
+
+</form>
+
+<!-- login and logout statment 
+it checks if the user is login or not
+and whether the status shows a page or other -->
+{% if request.user.is_authenticated %}
+<p>Hello {{request.user}}</p>
+<a href="{% url 'logout' %}">Logout</a>
+{% else %}
+<a href="{% url 'login' %}">Login</a>
+{% endif %}
+
+<hr>
