@@ -170,7 +170,10 @@ def createRoom(request):
         #check is valid
         if form.is_valid():
             #save the data
-            form.save()
+            room = form.save(commit=False)
+            #this is for getting the user automatic before I had a display of user
+            room.host = request.user
+            room.save()
             return redirect('home')
     context = {'form':form}
     return render(request, 'base/room_form.html', context)

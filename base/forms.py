@@ -10,4 +10,5 @@ class RoomForm(ModelForm):
         #all the fields in fields must be specify in models.py 
         # fields = ['name', 'body']
         fields = '__all__'
+        exclude = ['host', 'participants']
 
